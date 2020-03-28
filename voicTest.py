@@ -2,8 +2,10 @@ from gtts import gTTS
 import playsound
 import pyttsx3
 
+# TODO
 
-eng = "सर there is an emergency case of मेहर गिरेबान "
+
+eng = "सर nishant c  है हम क्या करें  "
 obj = gTTS(text=eng, slow=False, lang='hi')
 obj.save('eng.mp3')
 
@@ -14,5 +16,5 @@ obj.save('eng.mp3')
 
 # engine = pyttsx3.init()
 
-
-playsound.playsound("eng.mp3")
+while( True):
+    playsound.playsound("eng.mp3")
