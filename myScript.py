@@ -8,68 +8,105 @@ from gtts import gTTS
 import os
 import datetime
 import time
+import threading
+import quickstart
 
 
-
-# The text that you want to convert to audio
-mytext = 'Welcome'
-eventName = ""
-profName = ""
-location = ""
-textToSpeech = "" 
-
-os.chdir("F:\\GoogleCalendarPython")
-# Language in which you want to convert
-language = 'en'
-i = 1
+def refresh():
+    while (True):
+        print("hii")
+        quickstart.main()
+        readFile()
+        time.sleep(30)
 
 
+def readFile():
+    global data
+    with open("events.txt", 'r') as f:
+        data = f.readlines()
 
-with open("events.txt", 'r') as f:
-    data = f.readlines()
 
-for line in data:
-    mytext = line
-    #       2020-03-30T15:30:00+05:30 #AI ML# $prof - Dinesh Kumar Baghel$ @C- 217@
-    slot = mytext[:mytext.find(' ')]
-    eventName = mytext[mytext.find('#')+1:mytext.rfind('#')]
-    profName = mytext[mytext.find('$')+1:mytext.rfind('$')]
-    location = mytext[mytext.find('@')+1:mytext.rfind('@')]
+if __name__ == "__main__":
+    # The text that you want to convert to audio
+    mytext = 'Welcome'
+    eventName = ""
+    profName = ""
+    location = ""
+    textToSpeech = ""
+    checked = False
+    os.chdir("F:\\GoogleCalendarPython")
+    # Language in which you want to convert
+    language = 'en'
+    i = 1
+    threadRefresh = threading.Thread(target=refresh)
+    threadRefresh.start()
 
-    if profName == mytext and location == mytext:
-        pass
-    else:
-        if profName.find('#') < 0:
-            textToSpeech = "Sir, there is  an upcoming event {0} Lecture, by {1}".format(eventName, profName)
-        elif location.find('#') < 0:
-            textToSpeech = "Sir, there is  an upcoming event {0}, Lecture, by {1}, at {2}".format(eventName, profName, location)
+    with open("events.txt", 'r') as f:
+        data = f.readlines()
+
+    for line in data:
+        mytext = line
+        #       2020-03-30T15:30:00+05:30 #AI ML# $prof - Dinesh Kumar Baghel$ @C- 217@
+
+        eventName = mytext[mytext.find('#')+1:mytext.rfind('#')]
+        profName = mytext[mytext.find('$')+1:mytext.rfind('$')]
+        location = mytext[mytext.find('@')+1:mytext.rfind('@')]
+
+        if profName == mytext and location == mytext:
+            pass
         else:
-            textToSpeech = "Sir, there is  an upcoming event {0},".format(eventName)
-    timefrag = slot.split('+')
-    until = timefrag[0]
-    playtime = datetime.datetime.strptime(until, '%Y-%m-%dT%H:%M:%S')
-    #playtime = datetime.datetime.strptime('2020-03-28T00:31:00', '%Y-%m-%dT%H:%M:%S')
+            if profName.find('#') < 0:
+                textToSpeech = "Sir, there is  an upcoming event {0} Lecture, by {1}".format(
+                    eventName, profName)
+            elif location.find('#') < 0:
+                textToSpeech = "Sir, there is  an upcoming event {0}, Lecture, by {1}, at {2}".format(
+                    eventName, profName, location)
+            else:
+                textToSpeech = "Sir, there is  an upcoming event {0},".format(
+                    eventName)
+        slot = mytext[:mytext.find(' ')]
+        timefrag = slot.split('+')
+        until = timefrag[0]
+        playtime = datetime.datetime.strptime(until, '%Y-%m-%dT%H:%M:%S')
+        print(playtime)
+        #playtime = datetime.datetime.strptime('2020-03-28T15:59:00', '%Y-%m-%dT%H:%M:%S')
 
-    while playtime > datetime.datetime.now():
-        time.sleep(1)
-        print (playtime - datetime.datetime.now())
+        while playtime > datetime.datetime.now():
+            checked = True
+            time.sleep(1)
+            print(playtime - datetime.datetime.now())
+            for line in data:
+                mytext = line
+                slot = mytext[:mytext.find(' ')]
+                timefrag = slot.split('+')
+                until = timefrag[0]
+                playtime2 = datetime.datetime.strptime(
+                    until, '%Y-%m-%dT%H:%M:%S')
+                if playtime2 < playtime and playtime2 > datetime.datetime.now():
+                    playtime = playtime2
+                    eventName = mytext[mytext.find('#')+1:mytext.rfind('#')]
+                    profName = mytext[mytext.find('$')+1:mytext.rfind('$')]
+                    location = mytext[mytext.find('@')+1:mytext.rfind('@')]
 
-    #print(playtime)
-    #print(mytext)
-    
+                    if profName == mytext and location == mytext:
+                        pass
+                    else:
+                        if profName.find('#') < 0:
+                            textToSpeech = "Sir, there is  an upcoming event {0} Lecture, by {1}".format(
+                                eventName, profName)
+                        elif location.find('#') < 0:
+                            textToSpeech = "Sir, there is  an upcoming event {0}, Lecture, by {1}, at {2}".format(
+                                eventName, profName, location)
+                        else:
+                            textToSpeech = "Sir, there is  an upcoming event {0},".format(
+                                eventName)
+                else:
+                    continue
 
+        if (checked):
+            myobj = gTTS(text=textToSpeech, lang=language, slow=False)
+            myobj.save("welcome" + str(i) + ".mp3")
 
-    myobj = gTTS(text=textToSpeech, lang=language, slow=False)
+            playsound.playsound("welcome" + str(i) + ".mp3", True)
 
-    myobj.save("welcome" +str(i) + ".mp3") 
-    
-
-    playsound.playsound("welcome" + str(i) + ".mp3", True)
-
-    i += 1
-        
-        
-
-
-
-
+            i += 1
