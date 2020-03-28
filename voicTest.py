@@ -1,11 +1,8 @@
 from gtts import gTTS
 import playsound
-import pyttsx3
-
-# TODO
 
 
-eng = "सर nishant c  है हम क्या करें  "
+eng = "ए चचा ए, शिल्पा के dekhah, जब हम आते ह तब ये आती है"
 obj = gTTS(text=eng, slow=False, lang='hi')
 obj.save('eng.mp3')
 
