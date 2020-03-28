@@ -1,0 +1,10 @@
+2020-03-28T12:30:00+05:30 #Lunch Break#
+2020-03-28T12:40:00+05:30 #Alternate Dimension# $Professor Gopi$ @Home@
+2020-03-29T12:30:00+05:30 #Lunch Break#
+2020-03-30T08:30:00+05:30 #DBMS Lab#
+2020-03-30T10:30:00+05:30 #SLBT# $prof - Shikha Pant$ @C-003@
+2020-03-30T12:30:00+05:30 #Lunch Break#
+2020-03-30T13:30:00+05:30 #AI ML# $prof - Dinesh Kumar Baghel$ @C- 217@
+2020-03-30T14:30:00+05:30 #Tranceducer#
+2020-03-30T15:30:00+05:30 #AI ML# $prof - Dinesh Kumar Baghel$ @C- 217@
+2020-03-30T16:30:00+05:30 #Tranceducer#
