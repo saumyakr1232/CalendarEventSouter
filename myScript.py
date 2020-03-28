@@ -1,7 +1,8 @@
 # Import the required module for text
 # to speech conversion
-import pyttsx3
-engine = pyttsx3.init()
+from gtts import gTTS
+import playsound
+
 
 # This module is imported so that we can
 # play the converted audio
@@ -56,13 +57,13 @@ if __name__ == "__main__":
             pass
         else:
             if profName.find('#') < 0:
-                textToSpeech = "Sir, there is  an upcoming event {0} Lecture, by {1}".format(
+                textToSpeech = "सर, there is  an upcoming event {0} Lecture, by {1}".format(
                     eventName, profName)
             elif location.find('#') < 0:
-                textToSpeech = "Sir, there is  an upcoming event {0}, Lecture, by {1}, at {2}".format(
+                textToSpeech = "सर, there is  an upcoming event {0}, Lecture, by {1}, at {2}".format(
                     eventName, profName, location)
             else:
-                textToSpeech = "Sir, there is  an upcoming event {0},".format(
+                textToSpeech = "सर, there is  an upcoming event {0},".format(
                     eventName)
         slot = mytext[:mytext.find(' ')]
         timefrag = slot.split('+')
@@ -104,7 +105,7 @@ if __name__ == "__main__":
                     continue
 
         if (checked):
-            engine.setProperty('rate', 120)
-            engine.say(textToSpeech)
-            engine.runAndWait()
-            engine.stop()
+            obj = gTTS(text=textToSpeech, slow=False, lang='hi')
+            obj.save('eng.mp3')
+            playsound.playsound("eng.mp3")
+            

@@ -1,9 +1,9 @@
 from gtts import gTTS
-import voic
+import playsound
 import pyttsx3
 
 
-eng = "सर, शशांक राजपूत द्वारा एक आगामी घटना समानांतर  व्याख्यान है "
+eng = "सर there is an emergency case of मेहर गिरेबान "
 obj = gTTS(text=eng, slow=False, lang='hi')
 obj.save('eng.mp3')
 
@@ -15,5 +15,4 @@ obj.save('eng.mp3')
 # engine = pyttsx3.init()
 
 
-speak = wincl.Dispatch('SAPI.SpVoice')
-speak.Speak(eng)
+playsound.playsound("eng.mp3")
