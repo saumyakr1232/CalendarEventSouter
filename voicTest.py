@@ -1,11 +1,10 @@
 from gtts import gTTS
-import win32com.client as wincl
+import voic
 import pyttsx3
 
 
-
-eng = "Sir there is an upcoming event parallel uviverse lecture by shashank rajpoot at galgotias university"
-obj = gTTS(text=eng, slow=False, lang='bh')
+eng = "सर, शशांक राजपूत द्वारा एक आगामी घटना समानांतर  व्याख्यान है "
+obj = gTTS(text=eng, slow=False, lang='hi')
 obj.save('eng.mp3')
 
 
