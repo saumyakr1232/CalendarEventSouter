@@ -1,5 +1,4 @@
-2020-03-28T16:03:00+05:30 #Hhhh#
-2020-03-28T16:05:00+05:30 #Hhsjdjh#
+2020-03-28T20:08:00+05:30 #Parallel universes# $Professor  Shashank rajpoot$ @Galgotias@
 2020-03-29T12:30:00+05:30 #Lunch Break#
 2020-03-30T08:30:00+05:30 #DBMS Lab#
 2020-03-30T10:30:00+05:30 #SLBT# $prof - Shikha Pant$ @C-003@
@@ -8,3 +7,4 @@
 2020-03-30T14:30:00+05:30 #Tranceducer#
 2020-03-30T15:30:00+05:30 #AI ML# $prof - Dinesh Kumar Baghel$ @C- 217@
 2020-03-30T16:30:00+05:30 #Tranceducer#
+2020-03-31T10:30:00+05:30 #Java -2 # $prof - Upadhyay and Sathyaprakash$ @A-110@

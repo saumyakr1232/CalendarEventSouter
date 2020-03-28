@@ -1,7 +1,7 @@
 # Import the required module for text
 # to speech conversion
-import playsound
-from gtts import gTTS
+import pyttsx3
+engine = pyttsx3.init()
 
 # This module is imported so that we can
 # play the converted audio
@@ -104,9 +104,7 @@ if __name__ == "__main__":
                     continue
 
         if (checked):
-            myobj = gTTS(text=textToSpeech, lang=language, slow=False)
-            myobj.save("welcome" + str(i) + ".mp3")
-
-            playsound.playsound("welcome" + str(i) + ".mp3", True)
-
-            i += 1
+            engine.setProperty('rate', 120)
+            engine.say(textToSpeech)
+            engine.runAndWait()
+            engine.stop()
