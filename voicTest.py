@@ -16,6 +16,6 @@ obj.save('eng.mp3')
 
 # engine = pyttsx3.init()
 
-while( True):
-    playsound.playsound("eng.mp3")
-    time.sleep(2)
+# while( True):
+#     playsound.playsound("eng.mp3")
+#     time.sleep(2)
