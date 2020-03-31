@@ -42,8 +42,6 @@ def main():
                                           maxResults=10, singleEvents=True,
                                           orderBy='startTime').execute()
     events = events_result.get('items', [])
-    with open("completeDetails.txt", 'w')as f:
-        f.write(str(events_result))
 
     if not events:
         print('No upcoming events found.')
