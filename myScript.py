@@ -16,9 +16,13 @@ import quickstart
 def refresh():
     while (True):
         print("hii")
-        quickstart.main()
-        readFile()
-        time.sleep(30)
+        try:
+            quickstart.main()
+            readFile()
+            time.sleep(30)
+        except :
+            print("Unable to Refresh events")
+        
 
 
 def readFile():

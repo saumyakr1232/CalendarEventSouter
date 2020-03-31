@@ -1,8 +1,11 @@
 from gtts import gTTS
 import playsound
+import time
+import datetime
 
 
-eng = "ए चचा ए, शिल्पा के dekhah, जब हम आते ह तब ये आती है"
+eng = "ए चचा ए,   शिल्पा के dekhah, जब हम aaaye ni tabh uhoooo aawee laeee "
+
 obj = gTTS(text=eng, slow=False, lang='hi')
 obj.save('eng.mp3')
 
@@ -15,3 +18,4 @@ obj.save('eng.mp3')
 
 while( True):
     playsound.playsound("eng.mp3")
+    time.sleep(2)
