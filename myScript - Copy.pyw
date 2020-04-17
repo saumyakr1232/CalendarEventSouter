@@ -1,6 +1,9 @@
+#version 2.1
 # Import the required module for text
 # to speech conversion
 from gtts import gTTS
+
+import urllib.request
 
 
 # This module is imported so that we can
@@ -19,13 +22,22 @@ def refreshListOfEvents():
         every 30 sec
     """
     while (True):
-        try:
-            quickstart.main() # refresh events file 
-            global data
-            data = readFile()  # update data (event list)
-            time.sleep(30)
-        except:
-            print("Unable to Refresh events")
+        global connected
+        connected = connect()
+        if(connected):
+            try:
+                quickstart.main()  # refresh events file
+                global data
+                data = readFile()  # update data (event list)
+                time.sleep(30)
+            except:
+                print(
+                    "Unable to Refresh events some error occured while getting events from google")
+                time.sleep(10)
+        else:
+            time.sleep(10)
+            print("Check your internet connection")
+
 
 def readFile():
     """ read events file and create and return a list of events """
@@ -75,6 +87,14 @@ def playSound(textToSpeech):
     playsound.playsound("eng.mp3")
 
 
+def connect(host='http://google.com'):
+    try:
+        urllib.request.urlopen(host)
+        return True
+    except:
+        return False
+
+
 def main():
     """ voice Notification for events from  google calendar
         updates every 30 secs"""
@@ -90,7 +110,6 @@ def main():
     # Language in which you want to convert
     language = 'hi'
 
-    
     global data
     data = readFile()
 
@@ -132,11 +151,13 @@ def main():
 
 
 if __name__ == "__main__":
-    quickstart.main()
+    connected = connect()
+    if(connected):
+        quickstart.main()
+    else:
+        print("No internet connection available")
     data = []
+
     threadRefresh = threading.Thread(target=refreshListOfEvents, daemon=True)
     threadRefresh.start()
     main()
-    
-    
-    

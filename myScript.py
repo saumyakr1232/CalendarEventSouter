@@ -1,4 +1,4 @@
-#version 2.1
+#version 2.1.1
 # Import the required module for text
 # to speech conversion
 from gtts import gTTS
@@ -17,11 +17,13 @@ import threading
 import quickstart
 
 
-def refreshListOfEvents(connected):
+def refreshListOfEvents():
     """ get/refresh event list from google calendar
         every 30 sec
     """
     while (True):
+        global connected
+        connected = connect()
         if(connected):
             try:
                 quickstart.main() # refresh events file 
@@ -30,7 +32,9 @@ def refreshListOfEvents(connected):
                 time.sleep(30)
             except:
                 print("Unable to Refresh events some error occured while getting events from google")
+                time.sleep(10)
         else:
+            time.sleep(10)
             print("Check your internet connection")
 def readFile():
     """ read events file and create and return a list of events """
@@ -146,11 +150,17 @@ def main():
 
 
 if __name__ == "__main__":
-    quickstart.main()
+    connected = connect()
+    if(connected):
+        quickstart.main()
+    else:
+        print("No internet connection available")
     data = []
+    
     threadRefresh = threading.Thread(target=refreshListOfEvents, daemon=True)
     threadRefresh.start()
     main()
     
+   
     
     
