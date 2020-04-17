@@ -1,10 +1,10 @@
-2020-03-31T15:38:00+05:30 #Parallel universes# $Professor  Shashank rajpoot$ @Galgotias@
-2020-03-31T16:30:00+05:30 #DBMS# $prof - Sasikumar Periyannan$ @C-217@
-2020-04-01T08:30:00+05:30 #Android lab#
-2020-04-01T10:30:00+05:30 #SLBT# $prof - Shikha Pant$ @C-003@
-2020-04-01T12:30:00+05:30 #Lunch Break#
-2020-04-01T13:30:00+05:30 #DBMS# $prof - Sasikumar Periyannan$ @C-217@
-2020-04-01T14:30:00+05:30 #Probablity and Statistics# $prof - Ashutosh Pandey$ @C-217@
-2020-04-01T15:30:00+05:30 #Operating System# $prof- S Ponmaniraj$ @C-217@
-2020-04-01T16:30:00+05:30 #Data Communication and Networking# $Prof - Ganesh Gopal$ @C-217@
-2020-04-02T08:30:00+05:30 #Networking lab# $Godlin L$
+2020-04-17T14:30:00+05:30 #Data Communication and Networking# $Prof - Ganesh Gopal$ @C-217@
+2020-04-17T15:30:00+05:30 #Probablity and Statistics# $prof - Ashutosh Pandey$ @C-217@
+2020-04-17T16:30:00+05:30 #Tranceducer#
+2020-04-18T12:30:00+05:30 #Lunch Break#
+2020-04-19T12:30:00+05:30 #Lunch Break#
+2020-04-20T08:30:00+05:30 #DBMS Lab#
+2020-04-20T10:30:00+05:30 #SLBT# $prof - Shikha Pant$ @C-003@
+2020-04-20T12:30:00+05:30 #Lunch Break#
+2020-04-20T13:30:00+05:30 #AI ML# $prof - Dinesh Kumar Baghel$ @C- 217@
+2020-04-20T14:30:00+05:30 #Tranceducer#
